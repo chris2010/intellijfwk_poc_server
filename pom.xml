@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.clt.framework</groupId>
-    <artifactId>clt_framework</artifactId>
-    <packaging>jar</packaging>
-    <version>0.8-SNAPSHOT</version>
-    <name>tourBase</name>
+    <artifactId>intellijfwkpoc</artifactId>
+    <packaging>war</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>intellijfwkpoc</name>
     <url>http://maven.apache.org</url>
 
 
@@ -606,7 +606,7 @@
 
 
     <build>
-        <finalName>clt_framework</finalName>
+        <finalName>intellijfwkpoc</finalName>
         <filters>
             <filter>src/main/config/${framework.env}.properties</filter>
         </filters>
