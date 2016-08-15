@@ -18,6 +18,9 @@
     http://www.springframework.org/schema/util
     http://www.springframework.org/schema/util/spring-util-3.2.xsd">
 
+    <context:property-placeholder location="classpath*:weixin.properties"/> 
+
+
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close" >
         <property name="driverClassName">
