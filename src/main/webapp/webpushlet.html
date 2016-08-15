@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Comet4J Hello World</title>
+    <frameHeader>
+        <script type="text/javascript" src="StaticResource/JS/Comet/comet4j.js"></script>
+        <script type="text/javascript">
+            // function init() {
+            $(document).ready(function () {
+               // alert(123);
+               // var kbDom = document.getElementById('kb');
+               // var kbDoms = document.getElementById('kbs');
+                //  alert(123);
+                JS.Engine.on({
+                    public: function (kb) {//侦听一个channel
+                       // kbDom.innerHTML = kb;
+                      // alert(kb);
+                        $("#kb").html(kb);
+                    }
+                });
+                JS.Engine.on({
+                	publicPublish: function (kb) {//侦听一个channel
+                          $("#mems").html(kb);
+                    }
+                });
+                JS.Engine.start('pushlet');//统一处理推送的servlet
+                JS.Engine.on(
+                        'start', function (cId, channelList, engine) {
+                            alert('连接已建立，连接ID为：' + cId);
+                        });
+                JS.Engine.on(
+                        'stop', function (cId, channelList, engine) {
+                            alert('连接已关闭，关闭原因：' + cId);
+                        });
+
+            });
+        </script>
+    </frameHeader>
+</head>
+<body onload="init()">
+剩余内存：<span id="kb">...</span> KB
+剩余内存：<span id="mems">...</span> KB
+</body>
+</html>

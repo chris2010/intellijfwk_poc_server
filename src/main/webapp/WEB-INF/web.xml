@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <display-name>Archetype Created Web Application</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath*:applicationContext-*.xml,
+            classpath*:springFramework-*.xml
+        </param-value>
+    </context-param>
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>springmvc.root</param-value>
+    </context-param>
+    <filter>
+        <filter-name>SpringEncodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>SpringEncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter>
+        <filter-name>CLTFrameworkFilter</filter-name>
+        <filter-class>com.clt.framework.filter.FrameworkFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>CLTFrameworkFilter</filter-name>
+        <url-pattern>*</url-pattern>
+    </filter-mapping>
+    <!--<filter>-->
+        <!--<filter-name>sitemesh</filter-name>-->
+        <!--<filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>sitemesh</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+    <!-- SqlInjectFilter songjt-->
+    <!--<filter>-->
+        <!--<filter-name>PreventSqlInject</filter-name>-->
+        <!--<filter-class>com.clt.framework.filter.SqlInjectFilter</filter-class>-->
+        <!--&lt;!&ndash; filter word, split with @ &ndash;&gt;-->
+        <!--<init-param>-->
+            <!--<param-name>invalidsql</param-name>-->
+            <!--<param-value>select @insert @delete @from @update @create @destory@drop @alter @and @or @like @exec @count-->
+                <!--@chr @mid @master @truncate @char-->
+                <!--@declare@onmouseover@onabort@onblur@onchange@onclick@ondblclick@onerror@onfocus@onkeydown@onkeypress@onkeyup@onload@onmousedown@onmousemove@onmouseout@onmouseover@onmouseup@onreset@onresize@onselect@onsubmit@onunload-->
+            <!--</param-value>-->
+        <!--</init-param>-->
+        <!--&lt;!&ndash; error page &ndash;&gt;-->
+        <!--<init-param>-->
+            <!--<param-name>error</param-name>-->
+            <!--<param-value>/noLogin.jsp</param-value>-->
+        <!--</init-param>-->
+        <!--&lt;!&ndash; debug &ndash;&gt;-->
+        <!--<init-param>-->
+            <!--<param-name>debug</param-name>-->
+            <!--<param-value>true</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>PreventSqlInject</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+    <!--@分隔XssFilter songjt-->
+    <!--<filter>-->
+        <!--<filter-name>xssFilter</filter-name>-->
+        <!--<filter-class>com.clt.framework.filter.XssFilter</filter-class>-->
+        <!--<init-param>-->
+            <!--<param-name>SplitChar</param-name>-->
+            <!--<param-value>@</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>FilterChar</param-name>-->
+            <!--<param-value>&gt;@&lt;@'@"@\@#@(@)@%</param-value>-->
+        <!--</init-param>-->
+        <!--<init-param>-->
+            <!--<param-name>ReplaceChar</param-name>-->
+            <!--<param-value>＞@＜@‘@“@＼@＃@（@）@％</param-value>-->
+        <!--</init-param>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>xssFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>classpath:log4j_framework.properties</param-value>
+    </context-param>
+    <context-param>
+        <param-name>log4jRefreshInterval</param-name>
+        <param-value>6000</param-value>
+    </context-param>
+    <!-- songjt -->
+    <listener>
+        <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+    </listener>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>spring</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath*:springFramework-mvc.xml</param-value>
+        </init-param>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>spring</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    <!--   <listener>
+        <listener-class>org.comet4j.core.CometAppListener</listener-class>
+      </listener>
+      <servlet>
+        <display-name>CometServlet</display-name>
+        <servlet-name>CometServlet</servlet-name>
+        <servlet-class>org.comet4j.core.CometServlet</servlet-class>
+      </servlet>
+      <servlet-mapping>
+        <servlet-name>CometServlet</servlet-name>
+        <url-pattern>/pushlet</url-pattern>
+      </servlet-mapping>
+     -->
+
+    <servlet>
+   <servlet-name>CXFServlet</servlet-name>
+   <servlet-class>
+           org.apache.cxf.transport.servlet.CXFServlet
+       </servlet-class>
+   <load-on-startup>2</load-on-startup>
+ </servlet>
+ <servlet-mapping>
+   <servlet-name>CXFServlet</servlet-name>
+   <url-pattern>/webservice/*</url-pattern>
+ </servlet-mapping>
+
+
+<!-- <listener>
+   <description>HelloWorld</description>
+   <listener-class>com.clt.framework.listener.WebPushletListenner</listener-class>
+ </listener>
+     -->
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+</web-app>

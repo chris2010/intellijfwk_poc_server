@@ -1,0 +1,25 @@
+*{margin:0;padding:0;}
+body{background:#dff5f2;font-family:"Microsoft YaHei";}
+
+/*header*/
+.header{width:100%;height:85px;background-color:#fff;}
+.wid750{width:750px;position:absolute;left:50%;margin-left:-375px;}
+.wid750 img{width:85px;height:85px;float:left;}
+.wid750 span{display:inline-block;line-height:85px;}
+.fenge{width:1px;color:#999;padding:0 15px;}
+.title{font-size:18px;color:#444;}
+.btn_reg{font-size:18px;font-family:"Microsoft YaHei";color:#00afe4;
+border:#00afe4 solid 1px;width:100px;height:30px;background:#fff;line-height:30px;}
+.fr{float:right;position:relative;margin-right:45px;margin-top:30px;}
+
+/*main*/
+.wid660{width:660px;position:absolute;left:50%;margin-left:-330px;}
+.main{margin-top:79px;background-color:#fff;height:390px;text-align:center;}
+.main_fl{width:330px;height:390px;float:left;}
+.main_fr{width:330px;height:390px;text-align:center;float:right;}
+.main_fr_form{width:330px;height:200px;position:relative;left:165px;top:100px;
+margin-left:-130px;}
+.main_fr_form input{display:block;width:260px;height:35px;font-family:"Microsoft YaHei";
+font-size:16px;margin-bottom:20px;}
+.sub{border-radius:5px;border:1px solid #00afe4;color:#00afe4;background:#fff;}
+.sub:hover{background:#00afe4;color:#fff;}

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- 指明满足“/*”的页面，将被“/WEB-INF/views/decorators/decorator.html”所装饰 -->
+    <mapping path="/*" decorator="/WEB-INF/sitemesh3/decorator.jsp" />
+
+    <!-- 指明满足“/exclude.jsp*”的页面，将被排除，不被装饰 -->
+    <mapping path="/exclude.jsp*" exclue="true" />
+    <mapping path="/login*" exclue="true" />
+    <mapping path="/index.jsp" exclue="true" />
+    <mapping path="pushlet*" exclue="true" />
+    <mapping path="/logout*" exclue="true" />
+
+    <!--自定义Tag配置  可配置多个-->
+     <content-processor>
+         <tag-rule-bundle class="com.clt.framework.sitemesh.FrameworkTagRuleBundle" />
+     </content-processor>
+</sitemesh>
